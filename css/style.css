@@ -234,14 +234,14 @@
   /* About Section */
   .about,
   .team,
-  .menu,
+  .products,
   .contact {
     padding: 7.8rem 7% 1.4rem;
   }
   
   .about h2,
   .team h2,
-  .menu h2,
+  .products h2,
   .contact h2 {
     text-align: center;
     font-size: 2.6rem;
@@ -250,7 +250,7 @@
   
   .about h2 span,
   .team h2 span,
-  .menu h2 span,
+  .products h2 span,
   .contact h2 span {
     color: #994848;
   }
@@ -324,32 +324,77 @@
     font-size: 1.2rem;
   }
   
-  /* Menu Section */
-  .menu h2 {
-    margin-bottom: 3rem;
+  /* Products Section */
+  .products .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
   }
-  
-  .menu .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    justify-content: center;
-  }
-  
-  .menu .row .menu-card {
+
+  .products .product-card {
     text-align: center;
-    padding-bottom: 3rem;
+    border: 1px solid #666;
+    padding: 2rem;
   }
-  
-  .menu .row .menu-card img {
+
+  .products .product-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .products .product-icons a {
+    width: 4rem;
+    height: 4rem;
+    color: #fff;
+    margin: 0.3rem;
+    border: 1px solid #666;
     border-radius: 50%;
-    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .products .product-icons a:hover {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+  }
+
+  .products .product-image {
+    padding: 1rem 0;
+  }
+
+  .products .product-image img {
+    height: 17rem;
+    border-radius: 50%;
+  }
+
+  .products .product-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .products .product-stars {
+    font-size: 1.3rem;
+    padding: 0.8rem;
+    color: var(--primary);
+  }
+
+  .products .product-stars .star-full {
+    fill: var(--primary);
+  }
+
+  .products .product-price {
+    font-size: 1rem;
+    font-weight: bold;
   }
   
-  .menu .row .menu-card .menu-card-title {
-    margin-top: 1rem auto 0.5rem;
+  .products .product-price span {
+    text-decoration: line-through;
+    font-weight: lighter;
+    font-size: 1rem;
   }
-  
+
   /* Contact Us Section */
   .contact h2 {
     margin-bottom: 1rem;
@@ -441,6 +486,68 @@
     font-weight: 700;
   }
   
+
+  /* Modal Box */
+  /* Item Detail */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .modal-container {
+    position: relative;
+    background-color: #f7f2f2;
+    color: #000;
+    margin: 15% auto;
+    padding: 1.2rem;
+    border: 1px solid #666;
+    width: 80%;
+    animation: animateModal 0.5s;
+  }
+
+  /* Modal Animation */
+  @keyframes animateModal {
+    from {
+      top: -300px;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+  .modal-container .close-icon {
+    position: absolute;
+    right: 1rem;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .modal-content img {
+    height: 16rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .modal-content h3 {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+  
+
   /* Media Queries */
   /* Laptop */
   @media (max-width: 1366px) {
@@ -527,6 +634,10 @@
   
     .contact .row form {
       padding-top: 0;
+    }
+
+    .modal-content {
+      flex-wrap: wrap;
     }
   }
   
